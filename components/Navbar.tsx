@@ -64,7 +64,7 @@ export default function Navbar() {
             <motion.nav
                 className={clsx(
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-all duration-300",
-                    isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-gradient-to-b from-black/70 to-transparent"
+                    isScrolled ? "bg-black/80 backdrop-blur-md" : "bg-gradient-to-b from-black/70 to-transparent"
                 )}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -103,40 +103,42 @@ export default function Navbar() {
                         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </div>
-            </motion.nav>
 
-            {/* Mobile Menu Overlay */}
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-black/95 flex flex-col items-center justify-center gap-8 md:hidden"
-                    >
-                        {navLinks.map((item, index) => (
-                            <motion.button
-                                key={item.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                onClick={() => handleScroll(item.href)}
-                                className="text-2xl font-bold text-white hover:text-brand-yellow transition-colors"
-                            >
-                                {item.name}
-                            </motion.button>
-                        ))}
-                        <motion.button
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
-                            className="px-8 py-4 bg-brand-yellow text-black font-bold text-xl rounded-full hover:bg-white transition-all shadow-[0_0_20px_rgba(255,215,0,0.4)] mt-4"
+                {/* Mobile Menu Dropdown */}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="absolute top-full left-0 right-0 bg-black/95 backdrop-blur-xl border-t border-white/10 shadow-2xl overflow-hidden flex flex-col"
                         >
-                            Gabung Mitra
-                        </motion.button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                            <div className="flex flex-col p-6 gap-4">
+                                {navLinks.map((item, index) => (
+                                    <motion.button
+                                        key={item.name}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.1 }}
+                                        onClick={() => handleScroll(item.href)}
+                                        className="text-lg font-medium text-white/90 hover:text-brand-yellow w-full text-left py-2 border-b border-white/5"
+                                    >
+                                        {item.name}
+                                    </motion.button>
+                                ))}
+                                <motion.button
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                    className="w-full py-3 mt-2 bg-brand-yellow text-black font-bold rounded-xl hover:bg-white transition-all"
+                                >
+                                    Gabung Mitra
+                                </motion.button>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.nav>
         </>
     );
 }
