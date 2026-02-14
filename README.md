@@ -20,7 +20,7 @@ This project connects customers with the brand through smooth animations, intera
 ## 🚀 Key Features
 
 - ⚡ **Modern Tech Stack** — Next.js 15 (App Router), Tailwind CSS, Framer Motion  
-- 📍 **Interactive Locations** — “Jejak Kami” slider with drag-to-scroll experience  
+- 📍 **Interactive Locations** — "Jejak Kami" slider with drag-to-scroll experience  
 - 💳 **Dynamic QRIS Integration** — Payment system powered by Supabase + Admin Dashboard  
 - 📱 **Fully Responsive UI** — Optimized for mobile, tablet, and desktop  
 - 🎨 **Premium Aesthetic Design** — Bold typography, smooth motion, storytelling-driven layout  
@@ -57,28 +57,53 @@ Clone the repository:
 ```bash
 git clone https://github.com/Kaa278/happykuliner.git
 cd happykuliner
+```
+
 Install dependencies:
 
+```bash
 npm install
+```
+
 Run development server:
 
+```bash
 npm run dev
+```
+
 Open in browser:
 
-http://localhost:3000
-🌊 Design Principles
-Clean hierarchy
+**http://localhost:3000**
 
-Strong brand typography
+---
 
-Motion with purpose
+## 🌊 Design Principles
 
-Fast and frictionless UX
+- **Clean hierarchy**
+- **Strong brand typography**
+- **Motion with purpose**
+- **Fast and frictionless UX**
+- **Premium street-food storytelling**
 
-Premium street-food storytelling
+---
 
-🤝 Contribution
-Contributions are welcome.
+## 🤝 Contribution
+
+Contributions are welcome.  
 Feel free to open an issue or submit a pull request.
 
-<p align="center"> Crafted with passion by <b>Erdi Dhika</b><br/> Digital Product Builder & Frontend Engineer </p> <p align="center"> <a href="https://instagram.com/errdhikaa" target="_blank"> <img src="https://img.shields.io/badge/Instagram-@errdhikaa-E4405F?style=flat&logo=instagram&logoColor=white"/> </a> <a href="https://github.com/Kaa278" target="_blank"> <img src="https://img.shields.io/badge/GitHub-Kaa278-111?style=flat&logo=github&logoColor=white"/> </a> </p> ```
+<br />
+
+<p align="center">
+  Crafted with passion by <b>Erdi Dhika</b><br/>
+  Digital Product Builder & Frontend Engineer
+</p>
+
+<p align="center">
+  <a href="https://instagram.com/errdhikaa" target="_blank">
+    <img src="https://img.shields.io/badge/Instagram-@errdhikaa-E4405F?style=flat&logo=instagram&logoColor=white"/>
+  </a>
+  <a href="https://github.com/Kaa278" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-Kaa278-111?style=flat&logo=github&logoColor=white"/>
+  </a>
+</p>
