@@ -1,62 +1,43 @@
-# 🦑 Happy Kuliner
+# Happy Kuliner 🦑
 
 > **Premium Seafood Street Food Experience**  
 > *Fresh from the ocean to your plate.*
 
-![Happy Kuliner Banner](public/happy-kuliner-logo.svg)
+An immersive web application for a modern seafood brand, featuring interactive maps, dynamic QRIS payments, and a storytelling-driven user experience.
 
 ## ✨ About The Project
 
-**Happy Kuliner** is a modern web application designed for a premium seafood street food brand. It features a dynamic and interactive user interface that showcases the freshness and quality of the products.
+**Happy Kuliner** redefines the street food digital experience. Built for speed and engagement, it connects customers with the brand through smooth animations and a premium interface.
 
 ### 🚀 Key Features
 
-*   **🌊 Immersive Homepage**: A captivating sequence scroll animation telling the "Fresh From The Ocean" story.
-*   **📍 Jejak Kami (Locations)**: Interactive slider map to find our nearest branches, complete with "Drag to Scroll" functionality.
-*   **📱 QRIS Management**: Integrated dynamic QRIS system for seamless payments, manageable via a secure Admin Dashboard.
-*   **📖 Storytelling**: A redesigned "Tentang Kami" section that connects customers with our brand journey.
-*   **🎨 Premium UI/UX**: Custom SVG mascots, smooth animations (Framer Motion), and a responsive design tailored for all devices.
+*   **⚡ Modern Tech Stack**: Next.js 15 (App Router), Tailwind CSS, Framer Motion.
+*   **📍 Interactive Locations**: "Jejak Kami" slider with drag-to-scroll interaction.
+*   **💳 QRIS Integration**: Dynamic payment system with an Admin Dashboard.
+*   **📱 Fully Responsive**: Optimized for every device, from mobile to desktop.
+*   **🎨 Aesthetic UI**: Clean, bold typography and smooth scroll animations.
 
 ## 🛠️ Tech Stack
 
-Built with the latest web technologies for speed, scalability, and developer experience.
-
-*   **Framework**: [Next.js 15](https://nextjs.org/) (App Directory)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
-*   **Database**: [Supabase](https://supabase.com/) (PostgreSQL)
-*   **Language**: TypeScript
-
-## 📂 Project Structure
-
-```bash
-├── app/                # Next.js App Directory (Routes)
-├── components/         # Reusable React Components
-├── public/             # Static Assets (Logos, Icons)
-└── utils/              # Helper Functions & Supabase Client
-```
+*   [Next.js](https://nextjs.org/)
+*   [TypeScript](https://www.typescriptlang.org/)
+*   [Tailwind CSS](https://tailwindcss.com/)
+*   [Framer Motion](https://www.framer.com/motion/)
+*   [Supabase](https://supabase.com/)
 
 ## 🚀 Getting Started
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/Kaa278/happykuliner.git
-    ```
-2.  **Install dependencies**
-    ```bash
-    npm install
-    ```
-3.  **Run the development server**
-    ```bash
-    npm run dev
-    ```
-
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+```bash
+git clone https://github.com/Kaa278/happykuliner.git
+npm install
+npm run dev
+```
 
 ---
 
 <p align="center">
-  Made with ❤️ by Happy Kuliner Tech Team
+  Made with ❤️ by &nbsp;
+  <a href="https://instagram.com/errdhika" target="_blank">
+    <img src="https://img.shields.io/badge/@errdhika-E4405F?style=flat&logo=instagram&logoColor=white" alt="@errdhika" />
+  </a>
 </p>
