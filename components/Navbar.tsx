@@ -20,10 +20,11 @@ export default function Navbar() {
 
     // Secret Login Logic
     const handleLogoClick = (e: React.MouseEvent) => {
-        e.preventDefault(); // Prevent default navigation
+        e.preventDefault();
         setLogoClickCount((prev) => {
             const newCount = prev + 1;
-            if (newCount === 5) {
+            console.log("Logo clicked:", newCount); // Debugging
+            if (newCount >= 5) {
                 router.push("/admin");
                 return 0;
             }
@@ -71,9 +72,10 @@ export default function Navbar() {
             >
                 {/* Brand / Secret Login Trigger */}
                 <div onClick={handleLogoClick} className="cursor-pointer select-none group">
-                    <div className="flex items-center gap-2">
-                        <img src="/happy-kuliner-logo.svg" alt="Happy Kuliner" className="h-10 w-auto group-hover:scale-105 transition-transform" />
-                    </div>
+                    {/* Using div instead of Link to prevent immediate navigation */}
+                    <span className="text-2xl font-bold tracking-tighter text-white uppercase block">
+                        Happy Kuliner<span className="text-brand-red">.</span>
+                    </span>
                 </div>
 
                 {/* Desktop Menu */}
@@ -96,7 +98,7 @@ export default function Navbar() {
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="text-white p-2"
+                        className="text-white p-2 z-50 relative"
                     >
                         {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
