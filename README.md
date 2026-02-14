@@ -1,4 +1,4 @@
-# Happy Kuliner 🦑
+# Happy Kuliner
 
 > **Premium Seafood Street Food Experience**  
 > *Fresh from the ocean to your plate.*
@@ -37,7 +37,7 @@ npm run dev
 
 <p align="center">
   Made with ❤️ by &nbsp;
-  <a href="https://instagram.com/errdhika" target="_blank">
-    <img src="https://img.shields.io/badge/@errdhika-E4405F?style=flat&logo=instagram&logoColor=white" alt="@errdhika" />
+  <a href="https://instagram.com/errdhikaa" target="_blank">
+    <img src="https://img.shields.io/badge/@errdhikaa-E4405F?style=flat&logo=instagram&logoColor=white" alt="@errdhikaa" />
   </a>
 </p>
