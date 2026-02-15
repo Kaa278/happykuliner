@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import LocationModal from "./LocationModal";
 import { supabase } from "@/lib/supabase";
+import NextImage from "next/image";
 
 export default function ContentSections() {
     const [activeSlide, setActiveSlide] = useState(0);
@@ -164,10 +165,12 @@ export default function ContentSections() {
                                             {/* Image Container */}
                                             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-gray-100">
                                                 {(loc.images?.[0] || loc.image_url || loc.image || loc.url) && (
-                                                    <img
+                                                    <NextImage
                                                         src={loc.images?.[0] || loc.image_url || loc.image || loc.url}
                                                         alt={loc.city}
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                                                        fill
+                                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                        className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
                                                         draggable="false"
                                                     />
                                                 )}
@@ -240,9 +243,12 @@ export default function ContentSections() {
                             {qrisImage ? (
                                 <div className="bg-white p-8 rounded-[2rem] shadow-2xl border border-gray-100 max-w-sm mx-auto transform hover:-translate-y-2 transition-transform duration-300">
                                     <div className="bg-gray-50 p-4 rounded-3xl mb-6">
-                                        <img
+                                        <NextImage
                                             src={qrisImage}
                                             alt="Scan QRIS"
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw"
                                             className="w-full h-auto rounded-2xl mix-blend-multiply"
                                         />
                                     </div>
@@ -376,9 +382,12 @@ export default function ContentSections() {
                         </div>
 
                         <div className="bg-gray-50 rounded-2xl p-2">
-                            <img
+                            <NextImage
                                 src={qrisImage}
                                 alt="QRIS Full"
+                                width={0}
+                                height={0}
+                                sizes="100vw"
                                 className="w-full h-auto rounded-xl"
                             />
                         </div>

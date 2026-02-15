@@ -12,6 +12,7 @@ export default function SequenceScroll() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [images, setImages] = useState<HTMLImageElement[]>([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Scroll progress for the container
     const { scrollYProgress } = useScroll({
@@ -22,8 +23,24 @@ export default function SequenceScroll() {
     // Map scroll progress (0 to 1) to frame index (0 to FRAME_COUNT - 1)
     const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
 
-    // Preload images
+    // Detect Mobile
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
+    // Preload images (Only on Desktop)
+    useEffect(() => {
+        if (isMobile) {
+            setIsLoaded(true); // Mark as loaded immediately for mobile
+            return;
+        }
+
         const loadImages = async () => {
             const loadedImages: HTMLImageElement[] = [];
             const promises = [];
@@ -52,7 +69,7 @@ export default function SequenceScroll() {
         };
 
         loadImages();
-    }, []);
+    }, [isMobile]);
 
     // Draw frame function
     const renderFrame = (index: number) => {
@@ -78,6 +95,8 @@ export default function SequenceScroll() {
 
     // Resize handler
     useEffect(() => {
+        if (isMobile) return;
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -98,11 +117,11 @@ export default function SequenceScroll() {
         handleResize(); // Initial size
 
         return () => window.removeEventListener("resize", handleResize);
-    }, [isLoaded, images]);
+    }, [isLoaded, images, isMobile]);
 
     // Sync canvas with scroll
     useMotionValueEvent(frameIndex, "change", (latest) => {
-        if (!isLoaded || images.length === 0) return;
+        if (isMobile || !isLoaded || images.length === 0) return;
 
         const index = Math.round(latest);
         requestAnimationFrame(() => renderFrame(index));
@@ -123,10 +142,20 @@ export default function SequenceScroll() {
     return (
         <div ref={containerRef} className="relative h-[400vh] bg-black">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-                <canvas
-                    ref={canvasRef}
-                    className="absolute inset-0 block h-full w-full object-cover z-0"
-                />
+                {isMobile ? (
+                    // Static Image for Mobile
+                    <img
+                        src="/sequence/ezgif-frame-001.jpg"
+                        alt="Sequence Start"
+                        className="absolute inset-0 block h-full w-full object-cover z-0 opacity-60"
+                    />
+                ) : (
+                    // Canvas Sequence for Desktop
+                    <canvas
+                        ref={canvasRef}
+                        className="absolute inset-0 block h-full w-full object-cover z-0"
+                    />
+                )}
 
                 {/* Loading State */}
                 {!isLoaded && (
